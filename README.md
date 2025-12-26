@@ -22,11 +22,31 @@ Modern sensor datasets often include **hundreds of potential features**, many of
 Genetic-Algo/
 │
 ├── src/
-│   ├── data_cleaning/        # Scripts for preprocessing and feature engineering
-│   ├── feature_selection/    # GA implementation and fitness evaluation
-│   ├── models/               # Machine learning models for evaluation
-│   └── utils/                # Helper functions
+│   ├── features/                  # Feature extraction from eye, IMU, and shimmer sensors
+│   ├── parsers/                   # Parses raw data from trials and sensor recordings
+│   ├── utils/                     # Common helper functions for loading and formatting data
+│   │
+│   ├── append_eye_features.py     # Generates eye-tracking derived predictors
+│   ├── append_imu_features.py     # Generates motion-based predictors from IMU data
+│   ├── append_shimmer_features.py # Generates physiological predictors from Shimmer sensors
+│   ├── build_table.py             # Builds the final training dataset from all features
+│   ├── fix_task_stage.py          # Cleans and normalizes trial stage labels
+│   └── ga_rf_select.py            # Genetic Algorithm + Random Forest feature selection
 │
 ├── requirements.txt          # Dependencies to install
 ├── .gitignore                # Excludes large data + build files
 └── README.md                 # Project documentation
+
+> The dataset and output folders are excluded via `.gitignore` due to size and sensitivity.
+
+---
+
+## 🧪 Method Summary
+
+✔ Parse multi-sensor data  
+✔ Extract meaningful biomechanical and cognitive workload features  
+✔ Train a model to predict trial completion time  
+✔ Use a Genetic Algorithm to select high-value feature combinations  
+✔ Rank features by contribution to performance
+
+This helps reveal which physiological or behavioral signals **drive task efficiency**.
