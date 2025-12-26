@@ -1,0 +1,19 @@
+# Ignore python cache files
+__pycache__/
+*.pyc
+
+# Ignore large dataset folders
+data/
+
+# Ignore output / generated artifacts
+outputs/
+
+# Ignore virtual environment folders if present
+venv/
+.env/
+.env/*
+.venv/
+
+# Ignore system/editor files
+.DS_Store
+.vscode/
